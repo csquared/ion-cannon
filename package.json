@@ -1,0 +1,21 @@
+{
+  "name": "ion-cannon",
+  "version": "0.0.0",
+  "description": "Load Tester",
+  "main": "ion-cannon.js",
+  "dependencies" : {
+    "mqtt" : "*",
+    "optimist" : "*",
+    "logfmt" : ">= 0.3.1"
+  },
+  "scripts": {
+    "test": "test/test"
+  },
+  "repository": "",
+  "keywords": [
+    "load",
+    "testing"
+  ],
+  "author": "csquared",
+  "license": "BSD"
+}

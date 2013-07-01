@@ -1,0 +1,4 @@
+#! /usr/bin/env node
+
+var ion_cannon = require("../ion-cannon");
+ion_cannon.fire();
