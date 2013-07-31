@@ -5,12 +5,22 @@ var logfmt = require('logfmt'),
     argv = require('optimist').argv,
     numCPUs = require('os').cpus().length;
 
+var fire_mqtt = require('./lib/mqtt');
+var fire_ws = require('./lib/ws');
+
 exports.fire = function(){
+  if(!argv._[0] || argv.h || argv.help){
+    console.log("usage: \n\t ion-cannon <url> [-c concurrency] [-i/--interval milliseconds]");
+    process.exit(0);
+  }
+
   var target_url = url.parse(argv._[0]);
 
   var fire_func = null;
   if(target_url.protocol == 'mqtt:'){
     fire_func = function(name) { fire_mqtt(name, target_url, argv) };
+  }else if(target_url.protocol == 'ws:'){
+    fire_func = function(name) { fire_ws(name, target_url, argv) };
   }
 
   var concurrency = parseInt(argv.c || 1);
@@ -43,29 +53,3 @@ exports.fire = function(){
   }
 }
 
-var fire_mqtt = function(id, url, options){
-  var mqtt = require('mqtt');
-  var auth = (url.auth || ':').split(':');
-  // Create a client connection
-  var client = mqtt.createClient(url.port, url.hostname, {
-    username: auth[0],
-    password: auth[1]
-  });
-
-  var count = 0;
-
-  var chirp = function(){
-    var message = 'hello from ' + id + ':' + count;
-    logfmt.log({
-      id: id,
-      mqtt: true,
-      i: count,
-      topic: 'messages',
-      message: message
-    })
-    client.publish('messages', message);
-    count++;
-  }
-
-  setInterval(chirp, options.i || options.interval || 1000)
-}
