@@ -4,6 +4,10 @@ multi-protocol concurrent connection load tester
 
 uses all CPUs on host machine
 
+## install
+
+    > npm install ion-cannon
+
 ## use
 
     > ion-cannon [url] -i/--interval [interval in ms] -c [concurrency]
