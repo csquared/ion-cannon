@@ -1,7 +1,7 @@
 {
   "name": "ion-cannon",
-  "version": "0.0.0",
-  "description": "Load Tester",
+  "version": "0.1.0",
+  "description": "Concurrent connection load tester",
   "main": "ion-cannon.js",
   "dependencies" : {
     "mqtt" : "*",
