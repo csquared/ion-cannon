@@ -12,6 +12,7 @@
   "scripts": {
     "test": "test/test"
   },
+  "bin" : "./bin/ion-cannon",
   "repository": "",
   "keywords": [
     "load",
