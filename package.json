@@ -1,18 +1,18 @@
 {
   "name": "ion-cannon",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Concurrent connection load tester",
   "main": "ion-cannon.js",
-  "dependencies" : {
-    "mqtt" : "*",
-    "optimist" : "*",
-    "logfmt" : ">= 0.11.0",
-    "ws" : "*"
+  "dependencies": {
+    "mqtt": "*",
+    "optimist": "*",
+    "logfmt": ">= 0.11.0",
+    "ws": "*"
   },
   "scripts": {
     "test": "test/test"
   },
-  "bin" : "./bin/ion-cannon",
+  "bin": "./bin/ion-cannon",
   "repository": "",
   "keywords": [
     "load",
